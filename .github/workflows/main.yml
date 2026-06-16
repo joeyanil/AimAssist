@@ -11,15 +11,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Gradle
-        run: |
-          wget https://services.gradle.org/distributions/gradle-8.0-bin.zip
-          unzip gradle-8.0-bin.zip
-          export PATH=$PATH:$PWD/gradle-8.0/bin
-          gradle --version
       - name: Build APK
         run: |
-          export PATH=$PATH:$PWD/gradle-8.0/bin
+          wget https://services.gradle.org/distributions/gradle-7.5-bin.zip
+          unzip gradle-7.5-bin.zip
+          export PATH=$PATH:$PWD/gradle-7.5/bin
           gradle assembleDebug
       - name: Upload APK
         uses: actions/upload-artifact@v4
